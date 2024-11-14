@@ -4,20 +4,25 @@ namespace App\Http\Controllers\orders;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\oders\OderAddressModel;
-use App\Models\oders\OdersModel;
+use App\Models\orders\OrdersAddressModel;
+use App\Models\orders\OrdersModel;
 class OrderController extends Controller
 {
     public function order_list(){
-        $oders=OderAddressModel::find(1)->oder;
-       
-        return view("oder-list")->with(["oders"=>$oders]);
+        $orders=OrdersModel::where('id',1)->get();
+        dd($orders->address->phone);
+        
+        foreach($orders as $oder){
+            echo $oder->product_id;
+        }
+     
+        // return view("order-list")->with(["oders"=>$oders]);
     }
     public function order_details(){
-        return view("oder-detail");
+        return view("order-detail");
     }
     public function order_tracking(){
-        return view("oder-tracking");
+        return view("order-tracking");
     }
 
  

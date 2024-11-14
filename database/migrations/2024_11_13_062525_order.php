@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
             
-        Schema::create('oder_address', function (Blueprint $table) {
-            $table->id("oder_id");
-           $table->integer("customer_id");
-           $table->string("billing_name");
-           $table->string("billing_address");
-           $table->string("phone");
-           $table->string("payment");
+            $table->integer("product_id");
+            $table->integer("customer_id");
+            $table->decimal("price");
+            $table->integer("quantity");
+            $table->decimal("total");
+            $table->string("payment");
            $table->string("status");
-           $table->timestamps();
+           
+            $table->timestamps();
             
         });
     }

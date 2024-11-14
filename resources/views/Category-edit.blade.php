@@ -27,17 +27,18 @@
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <div class="text-tiny">New category</div>
+                                            <div class="text-tiny">Edit category</div>
                                         </li>
                                     </ul>
                                 </div>
                                 <!-- new-category -->
                                 <div class="wg-box">
-                                    <form class="form-new-product form-style-1" action="{{url('/category/store_category')}}" method="post" enctype="multipart/form-data" >
+                                    <form class="form-new-product form-style-1" action="{{url('/category/update')}}" method="post" enctype="multipart/form-data" >
                                         @csrf
+                                        <input type="hidden" name="id" value="{{$category->category_id}}">
                                         <fieldset class="name">
                                             <div class="body-title">Category name <span class="tf-color-1">*</span></div>
-                                            <input class="flex-grow" type="text" placeholder="Category name" name="category_name" tabindex="0" value="" aria-required="true" required="">
+                                            <input class="flex-grow" type="text" placeholder="Category name" name="category_name" value="{{$category->category_name}}" tabindex="0" value="" aria-required="true" required="">
                                         </fieldset>
                                         <fieldset>
                                             <div class="body-title">Upload images <span class="tf-color-1">*</span></div>
@@ -49,6 +50,7 @@
                                                         </span>
                                                         <span class="body-text">Drop your images here or select <span class="tf-color">click to browse</span></span>
                                                         <input type="file" id="myFile" name="image">
+                                                        <img src="{{url('assets/img')}}/{{$category->image}}" alt="">
                                                     </label>
                                                 </div>
                                             </div>
@@ -56,7 +58,7 @@
                                         
                                         <div class="bot">
                                             <div></div>
-                                            <button class="tf-button w208" type="submit">Save</button>
+                                            <button class="tf-button w208" type="submit">Update</button>
                                         </div>
                                     </form>
                                 </div>

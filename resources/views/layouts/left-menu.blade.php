@@ -140,12 +140,12 @@
                         </a>
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="all-roles.php" class="">
+                                <a href="{{url('/roles/all_role')}}" class="">
                                     <div class="text">All roles</div>
                                 </a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="create-role.php" class="">
+                                <a href="{{url('/roles/add_role')}}" class="">
                                     <div class="text">Create role</div>
                                 </a>
                             </li>

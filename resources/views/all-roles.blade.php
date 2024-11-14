@@ -29,6 +29,7 @@
                                         <li>
                                             <div class="text-tiny">Role List</div>
                                         </li>
+
                                     </ul>
                                 </div>
                                 <!-- all-roles -->
@@ -44,7 +45,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <a class="tf-button style-1 w208" href="create-roles.php"><i class="icon-plus"></i>Add role</a>
+                                        <a class="tf-button style-1 w208" href="{{url('/roles/add_role')}}"><i class="icon-plus"></i>Add role</a>
                                     </div>
                                     <div class="wg-table table-all-roles">
                                         <ul class="table-title flex gap20 mb-14">
@@ -52,7 +53,7 @@
                                                 <div class="body-title">No</div>
                                             </li>    
                                             <li>
-                                                <div class="body-title">Name</div>
+                                                <div class="body-title">Role Name</div>
                                             </li>
                                             <li>
                                                 <div class="body-title">Create at</div>
@@ -62,10 +63,11 @@
                                             </li>
                                         </ul>
                                         <ul class="flex flex-column">
+                                            @foreach($roles as $role)
                                             <li class="roles-item">
                                                 <div class="body-text">01</div>
-                                                <div class="body-text">Guy Hawkins</div>
-                                                <div class="body-text">May 31, 2023</div>
+                                                <div class="body-text">{{$role->role_name}}</div>
+                                                <div class="body-text">{{$role->created_at}}</div>
                                                 <div class="list-icon-function">
                                                     <div class="item edit">
                                                         <i class="icon-edit-3"></i>
@@ -75,7 +77,8 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="roles-item">
+                                            @endforeach
+                                            <!-- <li class="roles-item">
                                                 <div class="body-text">02</div>
                                                 <div class="body-text">Bessie Cooper</div>
                                                 <div class="body-text">December 2, 2023</div>
@@ -87,111 +90,8 @@
                                                         <i class="icon-trash-2"></i>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li class="roles-item">
-                                                <div class="body-text">03</div>
-                                                <div class="body-text">Wade Warren</div>
-                                                <div class="body-text">February 28, 2023</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="roles-item">
-                                                <div class="body-text">04</div>
-                                                <div class="body-text">Ralph Edwards</div>
-                                                <div class="body-text">December 19, 2023</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="roles-item">
-                                                <div class="body-text">05</div>
-                                                <div class="body-text">Devon Lane</div>
-                                                <div class="body-text">December 29, 2023</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="roles-item">
-                                                <div class="body-text">06</div>
-                                                <div class="body-text">Courtney Henry</div>
-                                                <div class="body-text">August 24, 2023</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="roles-item">
-                                                <div class="body-text">07</div>
-                                                <div class="body-text">Savannah Nguyen</div>
-                                                <div class="body-text">September 24, 2023</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="roles-item">
-                                                <div class="body-text">08</div>
-                                                <div class="body-text">Jane Cooper</div>
-                                                <div class="body-text">November 28, 2023</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="roles-item">
-                                                <div class="body-text">09</div>
-                                                <div class="body-text">Esther Howard</div>
-                                                <div class="body-text">February 9, 2023</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="roles-item">
-                                                <div class="body-text">10</div>
-                                                <div class="body-text">Cameron Williamson</div>
-                                                <div class="body-text">August 7, 2023</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            </li> -->
+                                           
                                         </ul>
                                     </div>
                                     <div class="divider"></div>

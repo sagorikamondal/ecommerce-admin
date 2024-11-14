@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
-        Schema::create('oders', function (Blueprint $table) {
-            $table->id();
-            $table->integer("order_id");
-            $table->integer("product_id");
-            $table->integer("customer_id");
-            $table->decimal("price");
-            $table->integer("quantity");
-            $table->decimal("total");
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id("category_id");
+            $table->string("category_name");
+           $table->string("image");
+          
            
-            $table->timestamps();
+           $table->timestamps();
             
         });
     }
