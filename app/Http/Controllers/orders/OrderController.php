@@ -10,10 +10,11 @@ class OrderController extends Controller
 {
     public function order_list(){
         $orders=OrdersModel::where('id',1)->get();
-        dd($orders->address->phone);
+        
         
         foreach($orders as $oder){
-            echo $oder->product_id;
+            // echo $oder->product_id;
+            echo $oder->address->phone;
         }
      
         // return view("order-list")->with(["oders"=>$oders]);
