@@ -48,7 +48,8 @@
                             <h3>Login to account</h3>
                             <div class="body-text">Enter your email & password to login</div>
                         </div>
-                        <form class="form-login flex flex-column gap24">
+                        <form class="form-login flex flex-column gap24" action="{{url('/admin/logincheck')}}" method="post">
+                            @csrf
                             <fieldset class="email">
                                 <div class="body-title mb-10">Email address <span class="tf-color-1">*</span></div>
                                 <input class="flex-grow" type="email" placeholder="Enter your email address" name="email" tabindex="0" value="" aria-required="true" required="">
@@ -66,9 +67,11 @@
                                     <input class="" type="checkbox" id="signed">
                                     <label class="body-text" for="signed">Keep me signed in</label>
                                 </div>
+                                  
                                 <a href="#" class="body-text tf-color">Forgot password?</a>
                             </div>
-                            <a href="index.php" class="tf-button w-full">Login</a>
+                            <button type="submit" class="tf-button w-full">Login</button>
+                            <!-- <a href="index.php" class="tf-button w-full">Login</a> -->
                         </form>
                         <div>
                             <div class="text-tiny mb-16 text-center">Or continue with social account</div>

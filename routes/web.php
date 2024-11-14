@@ -8,6 +8,7 @@ use App\Http\Controllers\category\CategoryController;
 use  App\Http\Controllers\orders\OrderController;
 use  App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\roles\RolesController;
+use App\Http\Controllers\admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use App\Http\Controllers\roles\RolesController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get("/dasboard",[DasboardController::class,"dasboard"]);
+Route::get("/dasboard",[DasboardController::class,"dasboard"])->middleware('auth');
 Route::get("/product/add-product",[ProductController::class,"add_product"]);
 Route::get("/product/list-product",[ListProductController::class,"list_product"]);
 
@@ -36,9 +37,16 @@ Route::get("/order/order-details",[OrderController::class,"order_details"]);
 Route::get("/order/order-tracking",[OrderController::class,"order_tracking"]);
 
 //Login
-Route::get("/admin/login",[LoginController::class,"login"]);
-Route::get("/admin/all_user",[LoginController::class,"all_user"]);
-Route::get("/admin/add_user",[LoginController::class,"add_user"]);
+Route::get("/admin/login",[LoginController::class,"login"])->name("login");
+Route::post("/admin/logincheck",[LoginController::class,"loginCheck"]);
+
+Route::get("/admin/all_user",[UserController::class,"all_user"]);
+Route::get("/admin/add_user",[UserController::class,"add_user"]);
+Route::post("/admin/store_new_user",[UserController::class,"store_new_user"]);
+Route::get("/user/user_delete/{did}",[UserController::class,"user_delete"]);
+Route::get("/user/user-edit/{eid}",[UserController::class,"user_edit"]);
+
+
 
 //user roles
 Route::get("/roles/add_role",[RolesController::class,"add_role"]);

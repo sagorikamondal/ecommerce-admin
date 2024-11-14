@@ -32,16 +32,26 @@
                                     </ul>
                                 </div>
                                 <!-- add-new-user -->
-                                <form class="form-add-new-user form-style-2">
+                                <form class="form-add-new-user form-style-2" action="{{url('/admin/store_new_user')}}" method="post">
+                                    @csrf
                                     <div class="wg-box">
                                         <div class="left">
                                             <h5 class="mb-4">Account</h5>
                                             <div class="body-text">Fill in the information below to add a new account</div>
                                         </div>
                                         <div class="right flex-grow">
+                                        <fieldset class="name mb-24">
+                                                <div class="body-title mb-10">Role</div>
+                                                <select name="role_id" id="">
+                                                    <option value="">Choose Role</option>
+                                                    @foreach($roles as $role)
+                                                    <option value="{{$role->role_id}}">{{$role->role_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </fieldset>
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10">Name</div>
-                                                <input class="flex-grow" type="text" placeholder="Username" name="name" tabindex="0" value="" aria-required="true" required="">
+                                                <input class="flex-grow" type="text" placeholder="Username" name="user_name" tabindex="0" value="" aria-required="true" required="">
                                             </fieldset>
                                             <fieldset class="email mb-24">
                                                 <div class="body-title mb-10">Email</div>
@@ -65,7 +75,7 @@
                                             </fieldset>
                                         </div>
                                     </div>
-                                    <div class="wg-box">
+                                    <!-- <div class="wg-box">
                                         <div class="left">
                                             <h5 class="mb-4">Pernission</h5>
                                             <div class="body-text">Items that the account is allowed to edit</div>
@@ -137,7 +147,7 @@
                                                 </div>
                                             </fieldset>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="bot">
                                         <button class="tf-button w180" type="submit">Save</button>
                                     </div>
