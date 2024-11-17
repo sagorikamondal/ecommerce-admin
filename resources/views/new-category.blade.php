@@ -56,7 +56,16 @@
                                         
                                         <div class="bot">
                                             <div></div>
+                                            @php
+                                                 $category_permisson=ltrim(Auth::user()->role->category_permission,',');
+                                                   $permissions=explode(",",$category_permisson);
+                                                        @endphp
+
+                                                   @foreach($permissions as $permission)
+                                                  @if($permission=="create")
                                             <button class="tf-button w208" type="submit">Save</button>
+                                            @endif
+                                            @endforeach
                                         </div>
                                     </form>
                                 </div>

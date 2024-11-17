@@ -12,25 +12,13 @@ class OrderController extends Controller
     public function order_list(){
         $orders=OrdersModel::where('id',1)->get();
         
-        
-        foreach($orders as $oder){
-            // echo $oder->product_id;
-            echo $oder->address->phone;
-        }
-     
-        // return view("order-list")->with(["oders"=>$oders]);
+        return view("order-list")->with(["orders"=>$orders]);
     }
-    public function order_details(){
-        $product_permisson=ltrim(Auth::user()->role->product_permission,',');
-       
-        $permissions=explode(",",$product_permisson);
-        foreach($permissions as $permission){
-        if($permission=="delete"){
+    public function order_details(request $request){
+        $order_id=$request->order_id;
+      $order_details=OrdersModel::find($order_id);
+         return view("order-detail")->with(['orders'=>$order_details]);
         
-        return view("order-detail");
-        }
-        }
-
         // else{
         //    return redirect(url('/dasboard'));
         // }

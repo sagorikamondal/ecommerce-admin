@@ -59,7 +59,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <a class="tf-button style-1 w208" href="add-product.php"><i class="icon-plus"></i>Add new</a>
+                                        <a class="tf-button style-1 w208" href="{{url('/product/add-product')}}"><i class="icon-plus"></i>Add new</a>
                                     </div>
                                     <div class="wg-table table-product-list">
                                         <ul class="table-title flex gap20 mb-14">
@@ -67,20 +67,21 @@
                                                 <div class="body-title">Product</div>
                                             </li>    
                                             <li>
-                                                <div class="body-title">Product ID</div>
+                                                <div class="body-title">Category Name</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Price</div>
+                                                <div class="body-title">Main Price</div>
+                                            </li>
+                                            <li>
+                                                <div class="body-title">Offer Price</div>
                                             </li>
                                             <li>
                                                 <div class="body-title">Quantity</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Sale</div>
+                                                <div class="body-title">image</div>
                                             </li>
-                                            <li>
-                                                <div class="body-title">Stock</div>
-                                            </li>
+                                           
                                             <li>
                                                 <div class="body-title">Start date</div>
                                             </li>
@@ -89,65 +90,62 @@
                                             </li>
                                         </ul>
                                         <ul class="flex flex-column">
+                                            @foreach($product_lists as $product_list)
                                             <li class="product-item gap14">
                                                 <div class="image no-bg">
                                                     <img src="images/products/41.png" alt="">
                                                 </div>
                                                 <div class="flex items-center justify-between gap20 flex-grow">
                                                     <div class="name">
-                                                        <a href="product-list.php" class="body-title-2">Dog Food, Chicken & Chicken Liver Recipe...</a>
+                                                        <a href="product-list.php" class="body-title-2">{{$product_list->product_name}}</a>
                                                     </div>
-                                                    <div class="body-text">#7712309</div>
-                                                    <div class="body-text">₹1,452.500</div>
-                                                    <div class="body-text">1,638</div>
-                                                    <div class="body-text">20</div>
+                                                    <div class="body-text">{{$product_list->category->category_name}}</div>
+                                                    <div class="body-text">₹{{$product_list->main_price}}</div>
+                                                    <div class="body-text">₹{{$product_list->offer_price}}</div>
+                                                    <div class="body-text">{{$product_list->total_quantity}}</div>
                                                     <div>
-                                                        <div class="block-not-available">Out of stock</div>
+                                                        @php
+                                                        $images=explode(",",$product_list->image);
+                                                        $image=current($images);
+                                                       
+                                                        @endphp
+                                                       
+                                                        <img src="{{url('assets/img')}}/{{$image}}" style="width: 100px;" alt="">
+                                                       
+                                                        <!-- <div class="block-not-available">Out of stock</div> -->
                                                     </div>
-                                                    <div class="body-text">₹28,672.36</div>
+                                                    <div class="body-text">{{$product_list->created_at}}</div>
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
                                                             <i class="icon-eye"></i>
                                                         </div>
+                                                        @php
+                                             $product_permisson=ltrim(Auth::user()->role->product_permission,',');
+                                        $permissions=explode(",",$product_permisson);
+                                          @endphp
+
+                                         @foreach($permissions as $permission)
+                                        @if($permission=="edit")
                                                         <div class="item edit">
-                                                            <i class="icon-edit-3"></i>
+                                                           <a href="{{url('products/edit-product')}}/{{$product_list->id}}"><i class="icon-edit-3"></i></a>
                                                         </div>
+                                                      @endif
+                                                      @endforeach
+                                                      @foreach($permissions as $permission)
+                                                      @if($permission=="delete")
                                                         <div class="item trash">
-                                                            <i class="icon-trash-2"></i>
+                                                        <a href="{{url('products/delete-product')}}/{{$product_list->id}}" onclick="return confirm('are you sure')"> <i class="icon-trash-2"></i></a>
                                                         </div>
+                                                        @endif
+                                                        @endforeach
+                                                       
+                                                       
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="product-item gap14">
-                                                <div class="image no-bg">
-                                                    <img src="images/products/42.png" alt="">
-                                                </div>
-                                                <div class="flex items-center justify-between gap20 flex-grow">
-                                                    <div class="name">
-                                                        <a href="product-list.php" class="body-title-2">Grain Free Dry Dog Food | Rachael Ray® Nutrish®</a>
-                                                    </div>
-                                                    <div class="body-text">#7712309</div>
-                                                    <div class="body-text">₹1,452.500</div>
-                                                    <div class="body-text">1,638</div>
-                                                    <div class="body-text">20</div>
-                                                    <div>
-                                                        <div class="block-not-available">Out of stock</div>
-                                                    </div>
-                                                    <div class="body-text">₹28,672.36</div>
-                                                    <div class="list-icon-function">
-                                                        <div class="item eye">
-                                                            <i class="icon-eye"></i>
-                                                        </div>
-                                                        <div class="item edit">
-                                                            <i class="icon-edit-3"></i>
-                                                        </div>
-                                                        <div class="item trash">
-                                                            <i class="icon-trash-2"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="product-item gap14">
+                                            @endforeach
+                                           
+                                            <!-- <li class="product-item gap14">
                                                 <div class="image no-bg">
                                                     <img src="images/products/43.png" alt="">
                                                 </div>
@@ -378,7 +376,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </div>
                                     <div class="divider"></div>

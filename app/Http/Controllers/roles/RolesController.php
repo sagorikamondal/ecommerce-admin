@@ -61,4 +61,17 @@ class RolesController extends Controller
         $all_role=rolemodel::all();
         return view("all-roles")->with(["roles"=>$all_role]);
     }
+
+    public function delete_role(request $request){
+        $delete_id=$request->id;
+        $delete_record=rolemodel::find($delete_id);
+        $delete_record->delete();
+        return redirect(url('/roles/all_role'));
+    }
+    public function edit_role(request $request){
+        $edit_id=$request->id;
+        $edit_record=rolemodel::find($edit_id);
+        return view('edit-role')->with(['role_edit'=>$edit_record]);
+       
+    }
 }

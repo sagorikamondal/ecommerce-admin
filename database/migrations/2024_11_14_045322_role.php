@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id("role_id");
             $table->string("role_name");
-            $table->string("role_permission");
-           $table->string("product_permission");
-           $table->string("user_permission");
-           $table->string("category_permission");
-           $table->string("order_permission");
+            $table->string("role_permission")->nullable();
+           $table->string("product_permission")->nullable();
+           $table->string("user_permission")->nullable();
+           $table->string("category_permission")->nullable();
+           $table->string("order_permission")->nullable();
            
            
            $table->timestamps();

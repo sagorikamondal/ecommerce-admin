@@ -5,9 +5,8 @@
                 <!-- /preload -->
                  @endsection
              @section("main-content")
-             @foreach($oders as $oder)
-             {{$oder->billing_name}}
-             @endforeach
+            
+
                     <!-- main-content -->
                     <div class="main-content">
                         <!-- main-content-wrap -->
@@ -57,9 +56,10 @@
                                         <ul class="table-title flex gap20 mb-14">
                                             <li>
                                                 <div class="body-title">Product</div>
+                                             
                                             </li>
                                             <li>
-                                                <div class="body-title">Order ID</div>
+                                                <div class="body-title">Billing Address</div>
                                             </li>
                                             <li>
                                                 <div class="body-title">Price</div>
@@ -68,7 +68,7 @@
                                                 <div class="body-title">Quantity</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Payment</div>
+                                                <div class="body-title">Total</div>
                                             </li>
                                             <li>
                                                 <div class="body-title">Status</div>
@@ -81,69 +81,56 @@
                                             </li>
                                         </ul>
                                         <ul class="flex flex-column">
+                                        @foreach($orders as $order)
+                                          
+                                  
                                             <li class="product-item gap14">
                                                 <div class="image no-bg">
                                                     <img src="images/products/51.png" alt="">
                                                 </div>
                                                 <div class="flex items-center justify-between gap20 flex-grow">
                                                     <div class="name">
-                                                        <a href="product-list.php" class="body-title-2">Kristin Watson</a>
+                                                        <a href="product-list.php" class="body-title-2">{{$order->product->product_name}}</a>
                                                     </div>
-                                                    <div class="body-text">#7712309</div>
-                                                    <div class="body-text">₹1,452.500</div>
-                                                    <div class="body-text">1,638</div>
-                                                    <div class="body-text">20</div>
+                                                    <div class="body-text">{{$order->address->billing_name}}</div>
+                                                    <div class="body-text">₹{{$order->price}}</div>
+                                                    <div class="body-text">{{$order->quantity}}</div>
+                                                    <div class="body-text">{{$order->total}}</div>
                                                     <div>
-                                                        <div class="block-available">Success</div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="block-tracking">Tracking</div>
-                                                    </div>
-                                                    <div class="list-icon-function">
-                                                        <div class="item eye">
-                                                            <i class="icon-eye"></i>
-                                                        </div>
-                                                        <div class="item edit">
-                                                            <i class="icon-edit-3"></i>
-                                                        </div>
-                                                        <div class="item trash">
-                                                            <i class="icon-trash-2"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="product-item gap14">
-                                                <div class="image no-bg">
-                                                    <img src="images/products/52.png" alt="">
-                                                </div>
-                                                <div class="flex items-center justify-between gap20 flex-grow">
-                                                    <div class="name">
-                                                        <a href="product-list.php" class="body-title-2">Kristin Watson</a>
-                                                    </div>
-                                                    <div class="body-text">#7712309</div>
-                                                    <div class="body-text">₹1,452.500</div>
-                                                    <div class="body-text">1,638</div>
-                                                    <div class="body-text">20</div>
-                                                    <div>
-                                                        <div class="block-pending">Pending</div>
+                                                        <div class="block-available">{{$order->status}}</div>
                                                     </div>
                                                     <div>
                                                         <div class="block-tracking">Tracking</div>
                                                     </div>
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
-                                                            <i class="icon-eye"></i>
+                                                        <a href="{{url('/order/order-details')}}/{{$order->id}}"><i class="icon-eye"></i></a>
                                                         </div>
+                                          @php
+                                                 $order_permisson=ltrim(Auth::user()->role->order_permission,',');
+                                                 $permissions=explode(",",$order_permisson);
+                                          @endphp
+
+                                          @foreach($permissions as $permission)
+                                                @if($permission=="edit")
                                                         <div class="item edit">
-                                                            <i class="icon-edit-3"></i>
+                                                            <a href="{{url('orders/edit-order')}}/{{$order->id}}"><i class="icon-edit-3"></i></a>
                                                         </div>
+                                                           @endif
+                                            @endforeach
+                                            @foreach($permissions as $permission)
+                                            @if($permission=="delete")
                                                         <div class="item trash">
-                                                            <i class="icon-trash-2"></i>
+                                                        <a href="{{url('orders/delete-order')}}/{{$order->id}}"><i class="icon-trash-2"></i></a>
                                                         </div>
+                                                        @endif
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="product-item gap14">
+                                            @endforeach
+                                            
+                                            <!-- <li class="product-item gap14">
                                                 <div class="image no-bg">
                                                     <img src="images/products/53.png" alt="">
                                                 </div>
@@ -390,7 +377,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </div>
                                     <div class="divider"></div>

@@ -78,12 +78,26 @@
                                                         <div class="item eye">
                                                             <i class="icon-eye"></i>
                                                         </div>
+                                                        @php
+                                    $user_permisson=ltrim(Auth::user()->role->user_permission,',');
+                                                 $permissions=explode(",",$user_permisson);
+                                          @endphp
+
+                                          @foreach($permissions as $permission)
+                                                @if($permission=="edit") 
                                                         <div class="item edit">
                                                             <a href="{{url('/user/user-edit')}}/{{$user->id}}"><i class="icon-edit-3"></i></a>
                                                         </div>
+                                                        @endif
+                                                        @endforeach
+                                                        
+                                          @foreach($permissions as $permission)
+                                                @if($permission=="delete") 
                                                         <div class="item trash">
                                                         <a href="{{url('/user/user_delete')}}/{{$user->id}}"><i class="icon-trash-2"></i></a>
                                                         </div>
+                                                        @endif
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </li>

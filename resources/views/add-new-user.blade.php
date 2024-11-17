@@ -148,9 +148,20 @@
                                             </fieldset>
                                         </div>
                                     </div> -->
+                                         
                                     <div class="bot">
+                                        @php
+                                    $user_permisson=ltrim(Auth::user()->role->user_permission,',');
+                                                 $permissions=explode(",",$user_permisson);
+                                          @endphp
+
+                                          @foreach($permissions as $permission)
+                                                @if($permission=="create") 
                                         <button class="tf-button w180" type="submit">Save</button>
+                                        @endif
+                                        @endforeach
                                     </div>
+                                  
 
                                 </form>
                                 <!-- /add-new-user -->

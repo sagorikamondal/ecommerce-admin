@@ -91,12 +91,26 @@
                                                         <div class="item eye">
                                                             <a href="ek.php"><i class="icon-eye"></i></a>
                                                         </div>
+                                                        @php
+                                                 $category_permisson=ltrim(Auth::user()->role->category_permission,',');
+                                                   $permissions=explode(",",$category_permisson);
+                                                        @endphp
+
+                                                   @foreach($permissions as $permission)
+                                                  @if($permission=="edit")
                                                         <div class="item edit">
                                                         <a href="{{url('/category/edit')}}/{{$category->category_id}}"><i class="icon-edit-3"></i></a>
                                                         </div>
+                                                        @endif
+                                                        @endforeach
+
+                                                        @foreach($permissions as $permission)
+                                                        @if($permission=="delete")
                                                         <div class="item trash">
                                                         <a href="{{url('/category/delete')}}/{{$category->category_id}}"><i class="icon-trash-2"></i></a>
                                                         </div>
+                                                        @endif
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </li>

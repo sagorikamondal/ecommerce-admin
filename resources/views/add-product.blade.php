@@ -32,18 +32,19 @@
                                     </ul>
                                 </div>
                                 <!-- form-add-product -->
-                                <form class="tf-section-2 form-add-product" >
+                                <form class="tf-section-2 form-add-product" action="{{url('/product/store-product')}}" method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="wg-box">
                                         <fieldset class="name">
                                             <div class="body-title mb-10">Product name <span class="tf-color-1">*</span></div>
-                                            <input class="mb-10" type="text" placeholder="Enter product name" name="text" tabindex="0" value="" aria-required="true" required="">
+                                            <input class="mb-10" type="text" placeholder="Enter product name" name="product_name" tabindex="0" value="" aria-required="true" required="">
                                             <div class="text-tiny">Do not exceed 20 characters when entering the product name.</div>
                                         </fieldset>
                                         <div class="gap22 cols">
                                             <fieldset class="category">
                                                 <div class="body-title mb-10">Category <span class="tf-color-1">*</span></div>
                                                 <div class="select">
-                                                    <select class="">
+                                                    <select class="" name="category_id">
                                                         <option>Choose category</option>
                                                         @foreach($categories as $category)
                                                         <option value="{{$category->category_id}}">{{$category->category_name}}</option>
@@ -55,7 +56,7 @@
                                             <fieldset class="male">
                                                 <div class="body-title mb-10">Gender <span class="tf-color-1">*</span></div>
                                                 <div class="select">
-                                                    <select class="">
+                                                    <select class="" name="gender">
                                                         <option>Male</option>
                                                         <option>Female</option>
                                                         <option>Other</option>
@@ -66,34 +67,42 @@
                                         <div class="gap22 cols">
                                             <fieldset class="category">
                                                 <div class="body-title mb-10">Base Price ₹ <span class="tf-color-1">*</span></div>
-                                                <input class="mb-10" type="text" placeholder="₹ " name="text" tabindex="0" value="" aria-required="true" required="">
+                                                <input class="mb-10" type="text" placeholder="₹ " name="main_price" tabindex="0" value="" aria-required="true" required="">
                                             </fieldset>
                                             <fieldset class="male">
                                                 <div class="body-title mb-10">Offer Price ₹ </div>
-                                                <input class="mb-10" type="text" placeholder="₹ " name="text" tabindex="0" value="">
+                                                <input class="mb-10" type="text" placeholder="₹ " name="offer_price" tabindex="0" value="">
                                             </fieldset>
                                             <fieldset class="male">
                                                 <div class="body-title mb-10">Total Quantity </div>
-                                                <input class="mb-10" type="text" placeholder="Quantity" name="text" tabindex="0" value="">
+                                                <input class="mb-10" type="text" placeholder="Quantity" name="quantity" tabindex="0" value="">
                                             </fieldset>
                                         </div>
-                                        <fieldset class="brand">
-                                            <div class="body-title mb-10">Brand <span class="tf-color-1">*</span></div>
-                                            <div class="select">
-                                                <select class="">
-                                                    <option>Choose category</option>
-                                                    <option>Shop</option>
-                                                    <option>Product</option>
-                                                </select>
-                                            </div>
-                                        </fieldset>
+                                      
                                         <fieldset class="description">
                                             <div class="body-title mb-10">Description <span class="tf-color-1">*</span></div>
-                                            <textarea class="mb-10" name="description" placeholder="Description" tabindex="0" aria-required="true" required=""></textarea>
+                                            <textarea class="mb-10" name="description" placeholder="Description" tabindex="0" aria-required="true" name="description" required=""></textarea>
                                             <div class="text-tiny">Do not exceed 100 characters when entering the product name.</div>
                                         </fieldset>
+                                        <fieldset class="upload-image mb-16">
+                                            <input type="file" name="image[]" id="" multiple>
+                                        </fieldset>
+                                        <div class="cols gap10">
+                                            @php
+                                        $product_permisson=ltrim(Auth::user()->role->product_permission,',');
+                                        $permissions=explode(",",$product_permisson);
+                                          @endphp
+
+                                         @foreach($permissions as $permission)
+                                        @if($permission=="create")
+                                            <button class="tf-button w-full" type="submit">Add product</button>
+                                           
+                                            @endif
+                                            @endforeach
+       
+                                        </div>
                                     </div>
-                                    <div class="wg-box">
+                                    <!-- <div class="wg-box">
                                         <fieldset>
                                             <div class="body-title mb-10">Upload images</div>
                                             <div class="upload-image mb-16">
@@ -144,11 +153,20 @@
                                             </fieldset>
                                         </div>
                                         <div class="cols gap10">
+                                            @php
+                                        $product_permisson=ltrim(Auth::user()->role->product_permission,',');
+                                        $permissions=explode(",",$product_permisson);
+                                          @endphp
+
+                                         @foreach($permissions as $permission)
+                                        @if($permission=="create")
                                             <button class="tf-button w-full" type="submit">Add product</button>
-                                            <button class="tf-button style-1 w-full" type="submit">Save product</button>
-                                            <a href="#" class="tf-button style-2 w-full">Schedule</a>
+                                           
+                                            @endif
+                                            @endforeach
+       
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </form>
                                 <!-- /form-add-product -->
                             </div>

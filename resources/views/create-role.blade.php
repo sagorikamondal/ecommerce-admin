@@ -184,150 +184,24 @@
                                                         <label class=""><div class="body-text">Delete</div></label>
                                                     </div>
                                                 </li>
-                                                <!-- <li class="item gap20 wrap-checkbox">
-                                                    <div class="body-text">Location</div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="total-checkbox" type="checkbox">
-                                                        <label class=""><div class="body-text">All</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Index</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Create</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Edit</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Delete</div></label>
-                                                    </div>
-                                                </li> -->
-                                                <!-- <li class="item gap20 wrap-checkbox">
-                                                    <div class="body-text">Coupon</div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="total-checkbox" type="checkbox">
-                                                        <label class=""><div class="body-text">All</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Index</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Create</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Edit</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Delete</div></label>
-                                                    </div>
-                                                </li> -->
-                                                <!-- <li class="item gap20 wrap-checkbox">
-                                                    <div class="body-text">Tax</div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="total-checkbox" type="checkbox">
-                                                        <label class=""><div class="body-text">All</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Index</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Create</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Edit</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Delete</div></label>
-                                                    </div>
-                                                </li> -->
-                                                <!-- <li class="item gap20 wrap-checkbox">
-                                                    <div class="body-text">Product review</div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="total-checkbox" type="checkbox">
-                                                        <label class=""><div class="body-text">All</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Index</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Create</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Edit</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Delete</div></label>
-                                                    </div>
-                                                </li> -->
-                                                <!-- <li class="item gap20 wrap-checkbox">
-                                                    <div class="body-text">Support ticket</div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="total-checkbox" type="checkbox">
-                                                        <label class=""><div class="body-text">All</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Index</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Create</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Edit</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Delete</div></label>
-                                                    </div>
-                                                </li> -->
-                                                <!-- <li class="item gap20 wrap-checkbox">
-                                                    <div class="body-text">Report</div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="total-checkbox" type="checkbox">
-                                                        <label class=""><div class="body-text">All</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Index</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Create</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Edit</div></label>
-                                                    </div>
-                                                    <div class="flex items-center gap10">
-                                                        <input class="checkbox-item" type="checkbox">
-                                                        <label class=""><div class="body-text">Delete</div></label>
-                                                    </div>
-                                                </li> -->
+                                               
+                                                   
+                                            
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="bot">
+                                    @php
+                                    $role_permisson=ltrim(Auth::user()->role->role_permission,',');
+                                                 $permissions=explode(",",$role_permisson);
+                                          @endphp
+
+                                          @foreach($permissions as $permission)
+                                                @if($permission=="create") 
                                        
                                         <button class="tf-button w180" type="submit">Save</button>
+                                        @endif
+                                        @endforeach
                                     </div>
                                 </form>
                                 <!-- /create-roles -->

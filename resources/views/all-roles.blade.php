@@ -69,12 +69,26 @@
                                                 <div class="body-text">{{$role->role_name}}</div>
                                                 <div class="body-text">{{$role->created_at}}</div>
                                                 <div class="list-icon-function">
+                                                    
+                                                @php
+                                    $role_permisson=ltrim(Auth::user()->role->role_permission,',');
+                                                 $permissions=explode(",",$role_permisson);
+                                          @endphp
+
+                                          @foreach($permissions as $permission)
+                                                @if($permission=="edit") 
                                                     <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
+                                                    <a href="{{url('/roles/edit-role')}}/{{$role->role_id}}"> <i class="icon-edit-3"></i></a>
                                                     </div>
+                                                    @endif
+                                                    @endforeach
+                                                    @foreach($permissions as $permission)
+                                                    @if($permission=="delete") 
                                                     <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
+                                                        <a href="{{url('/roles/delete-role')}}/{{$role->role_id}}"><i class="icon-trash-2"></i></a>
                                                     </div>
+                                                    @endif
+                                                    @endforeach
                                                 </div>
                                             </li>
                                             @endforeach
