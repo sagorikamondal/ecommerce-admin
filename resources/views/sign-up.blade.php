@@ -12,19 +12,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animation.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{url('assets/css/animate.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('assets/css/animation.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('assets/css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('assets/css/style.css')}}">
 
 
 
+  
     <!-- Font -->
-    <link rel="stylesheet" href="font/fonts.css">
+    <link rel="stylesheet" href="{{url('assets/font/fonts.css')}}">
+
 
     <!-- Icon -->
-    <link rel="stylesheet" href="icon/style.css">
+    <link rel="stylesheet" href="{{url('assets/icon/style.css')}}">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="images/favicon.png">

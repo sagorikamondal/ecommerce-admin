@@ -47,6 +47,7 @@ Route::get("/order/order-tracking",[OrderController::class,"order_tracking"]);
 //Login
 Route::get("/admin/login",[LoginController::class,"login"])->name("login");
 Route::post("/admin/logincheck",[LoginController::class,"loginCheck"]);
+Route::get("/admin/logout",[LoginController::class,"logout"]);
 
 Route::get("/admin/all_user",[UserController::class,"all_user"]);
 Route::get("/admin/add_user",[UserController::class,"add_user"]);

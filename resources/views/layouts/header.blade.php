@@ -414,7 +414,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="login.php" class="user-item">
+                                                <a href="{{url('/admin/logout')}}" class="user-item">
                                                     <div class="icon">
                                                         <i class="icon-log-out"></i>
                                                     </div>
