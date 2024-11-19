@@ -11,15 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id("category_id");
-            $table->string("category_name");
-           $table->string("image")->nullable();
-          
-           
-           $table->timestamps();
-            
-        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('status',['active','pending'])->default('pending');
+         });
     }
 
     /**

@@ -86,11 +86,38 @@
                                             <textarea class="mb-10" name="description" placeholder="Description" tabindex="0" aria-required="true" name="description" required="">{{$list->description}}</textarea>
                                             <div class="text-tiny">Do not exceed 100 characters when entering the product name.</div>
                                         </fieldset>
-                                        <fieldset class="upload-image mb-16">
-                                            <input type="file" name="image[]" id="" multiple>
-                                           
-                                        </fieldset>
-                                        <fieldset class="upload-image mb-16">
+                                       
+                                       
+                                        
+                                    </div>
+                                    <div class="wg-box">
+                                        <fieldset>
+                                            <div class="body-title mb-10">Upload images</div>
+                                            <div class="upload-image mb-16">
+                                            <!-- <div class="item">
+                                                    <img src="images/upload/upload-1.png" alt="">
+                                                </div>
+                                            <div class="item">
+                                                    <img src="images/upload/upload-1.png" alt="">
+                                                </div>
+                                                <div class="item">
+                                                    <img src="images/upload/upload-1.png" alt="">
+                                                </div> -->
+                                                <div id="image_gallery" class="item gallery">
+                                                    
+                                                    <!-- <img src="images/upload/upload-2.png" alt=""> -->
+                                                </div>
+                                                <div class="item up-load">
+                                                    <label class="uploadfile">
+                                                        <span class="icon">
+                                                            <i class="icon-upload-cloud"></i>
+                                                        </span>
+                                                        <span class="text-tiny">Drop your images here or select <span class="tf-color">click to browse</span></span>
+                                                        <input type="file" multiple  name="image[]" id="gallery-photo-add" >
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <fieldset class="upload-image mb-16">
                                         @php
                                             $images=explode(",",$list->image);
                                             @endphp
@@ -99,6 +126,37 @@
                                             @endforeach
                                             </fieldset>
                                         
+                                            <div class="body-text">You need to add at least 4 images. Pay attention to the quality of the pictures you add, comply with the background color standards. Pictures must be in certain dimensions. Notice that the product shows all the details</div>
+                                        </fieldset>
+                                        <div class="cols gap22">
+                                            <fieldset class="name">
+                                                <div class="body-title mb-10">Add size</div>
+                                               
+                                                <input list="size" name="size" class="form-control" placeholder="choose size" value="{{$list->size}}">
+                                                <!-- <input list="browsers" name="browser" id="browser"> -->
+                                                <datalist id="size">
+                                                        <option value="jhj">
+                                                        @foreach($records as $record)
+                                                        <option value="{{$record->size}}">
+                                                        @endforeach
+                                                   
+                                                </datalist>
+                                               
+                                                <div class="list-box-value mb-10">
+                                                @foreach($records as $record)
+                                                    <div class="box-value-item"><div class="body-text">SIZE - {{$record->size}}</div></div>
+                                                    @endforeach
+                                                    
+                                                </div>
+                                               
+                                            </fieldset>
+                                            <fieldset class="name">
+                                                <div class="body-title mb-10">Product date</div>
+                                                <div class="select">
+                                                    <input type="date" name="date" value="{{$list->created_at}}">
+                                                </div>
+                                            </fieldset>
+                                        </div>
                                         <div class="cols gap10">
                                             @php
                                         $product_permisson=ltrim(Auth::user()->role->product_permission,',');
@@ -114,71 +172,7 @@
        
                                         </div>
                                     </div>
-                                    <!-- <div class="wg-box">
-                                        <fieldset>
-                                            <div class="body-title mb-10">Upload images</div>
-                                            <div class="upload-image mb-16">
-                                                <div class="item">
-                                                    <img src="images/upload/upload-1.png" alt="">
-                                                </div>
-                                                <div class="item">
-                                                    <img src="images/upload/upload-2.png" alt="">
-                                                </div>
-                                                <div class="item up-load">
-                                                    <label class="uploadfile" for="myFile">
-                                                        <span class="icon">
-                                                            <i class="icon-upload-cloud"></i>
-                                                        </span>
-                                                        <span class="text-tiny">Drop your images here or select <span class="tf-color">click to browse</span></span>
-                                                        <input type="file" id="myFile" name="filename">
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="body-text">You need to add at least 4 images. Pay attention to the quality of the pictures you add, comply with the background color standards. Pictures must be in certain dimensions. Notice that the product shows all the details</div>
-                                        </fieldset>
-                                        <div class="cols gap22">
-                                            <fieldset class="name">
-                                                <div class="body-title mb-10">Add size</div>
-                                                <div class="select mb-10">
-                                                    <select class="">
-                                                        <option>EU - 44</option>
-                                                        <option>EU - 40</option>
-                                                        <option>EU - 50</option>
-                                                    </select>
-                                                </div>
-                                                <div class="list-box-value mb-10">
-                                                    <div class="box-value-item"><div class="body-text">EU - 38.5</div></div>
-                                                    <div class="box-value-item"><div class="body-text">EU - 39</div></div>
-                                                    <div class="box-value-item"><div class="body-text">EU - 40</div></div>
-                                                </div>
-                                                <div class="list-box-value">
-                                                    <div class="box-value-item"><div class="body-text">EU - 41.5</div></div>
-                                                    <div class="box-value-item"><div class="body-text">EU - 42</div></div>
-                                                    <div class="box-value-item"><div class="body-text">EU - 43</div></div>
-                                                </div>
-                                            </fieldset>
-                                            <fieldset class="name">
-                                                <div class="body-title mb-10">Product date</div>
-                                                <div class="select">
-                                                    <input type="date" name="date" value="2023-11-20">
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                        <div class="cols gap10">
-                                            @php
-                                        $product_permisson=ltrim(Auth::user()->role->product_permission,',');
-                                        $permissions=explode(",",$product_permisson);
-                                          @endphp
-
-                                         @foreach($permissions as $permission)
-                                        @if($permission=="create")
-                                            <button class="tf-button w-full" type="submit">Add product</button>
-                                           
-                                            @endif
-                                            @endforeach
-       
-                                        </div>
-                                    </div> -->
+                                  
                                 </form>
                                 <!-- /form-add-product -->
                             </div>
@@ -203,3 +197,42 @@
     </div>
     <!-- /#wrapper -->
 @endsection
+
+
+@section('extra-js')
+<script>
+    $(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+         if(filesAmount<5){
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+        else{
+            alert('Only 4 image allowed');
+        }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+      
+        imagesPreview(this, 'div.gallery');
+    });
+});
+</script>
+@endsection
+
+
+

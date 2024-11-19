@@ -44,17 +44,50 @@
                                             <div class="body-title">Upload images <span class="tf-color-1">*</span></div>
                                             <div class="upload-image flex-grow">
                                                 <div class="item up-load">
-                                                    <label class="uploadfile" for="myFile">
+                                                    <label class="uploadfile" >
                                                         <span class="icon">
                                                             <i class="icon-upload-cloud"></i>
                                                         </span>
                                                         <span class="body-text">Drop your images here or select <span class="tf-color">click to browse</span></span>
-                                                        <input type="file" id="myFile" name="image">
-                                                        <img src="{{url('assets/img')}}/{{$category->image}}" alt="">
+                                                        <input type="file" id="gallery-photo-add" name="image">
+                                                        <div class="gallery" style="width: 100px;"></div>
+                                                       
                                                     </label>
                                                 </div>
                                             </div>
                                         </fieldset>
+                               <div class="bot">
+                                        <div class="" style="width: 100px;">
+                                        <img src="{{url('/assets/img')}}/{{$category->image}}" alt="">
+
+                                        </div>
+
+                                            </div>
+                                        
+                                        <fieldset>
+                                            <div class="body-title">Upload Icon <span class="tf-color-1">*</span></div>
+                                            <div class="upload-image flex-grow">
+                                                <div class="item up-load">
+                                                    <label class="uploadfile">
+                                                        <span class="icon">
+                                                            <i class="icon-upload-cloud"></i>
+                                                        </span>
+                                                        <span class="body-text">Drop your images here or select <span class="tf-color">click to browse</span></span>
+                                                        <input type="file"  name="icon"  id="gallery-icon-add">
+                                                        <div class="icongallery" style="width: 100px;"></div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            
+                                        </fieldset>
+                                        <div class="bot">
+                                        <div class="" style="width: 100px;">
+                                        <img src="{{url('/assets/img')}}/{{$category->icon}}" alt="">
+
+                                        </div>
+
+                                            </div>
+                                       
                                         
                                         <div class="bot">
                                             <div></div>
@@ -85,3 +118,72 @@
     </div>
     <!-- /#wrapper -->
 @endsection
+
+@section('extra-js')
+<script>
+    $(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+         if(filesAmount<5){
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+        else{
+            alert('Only 4 image allowed');
+        }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+      
+        imagesPreview(this, 'div.gallery');
+    });
+});
+
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+         if(filesAmount<5){
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+        else{
+            alert('Only 4 image allowed');
+        }
+        }
+
+    };
+
+    $('#gallery-icon-add').on('change', function() {
+      
+        imagesPreview(this, 'div.icongallery');
+    });
+});
+</script>
+@endsection
+
+
+

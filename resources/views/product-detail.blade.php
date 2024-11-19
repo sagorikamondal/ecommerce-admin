@@ -1,56 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Basic Page Needs -->
-    <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>eCommerce Product Details</title>
-
-    <meta name="author" content="themesflat.com">
-
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animation.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <!-- Font -->
-    <link rel="stylesheet" href="font/fonts.css">
-
-    <!-- Icon -->
-    <link rel="stylesheet" href="icon/style.css">
-
-    <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="images/favicon.png">
-
-</head>
-
-<body class="body">
-
-    <!-- #wrapper -->
-    <div id="wrapper">
-        <!-- #page -->
-        <div id="page" class="">
-            <!-- layout-wrap -->
-           <div class="layout-wrap">
+@extends("layouts.main")
+                @section("preload")
                 <!-- preload -->
-                <?php include "preload.php"; ?>
+               <!-- @include("preload") -->
                 <!-- /preload -->
-                <!-- section-menu-left -->
-                <?php include "left-menu.php"; ?>
-                <!-- /section-menu-left -->
-                <!-- section-content-right -->
-                <div class="section-content-right">
-                    <!-- header-dashboard -->
-                    <?php include "header.php"; ?>
-                    <!-- /header-dashboard -->
-                    <!-- main-content -->
+                 @endsection
+             @section("main-content")
                     <div class="main-content">
                         <!-- main-content-wrap -->
                         <div class="main-content-inner">
@@ -330,18 +284,4 @@
         <!-- /#page -->
     </div>
     <!-- /#wrapper -->
-
-    <!-- Javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/zoom.js"></script>
-    <script src="js/switcher.js"></script>
-    <script src="js/theme-settings.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/carousel.js"></script>
-    <script src="js/main.js"></script>
-
-</body>
-
-</html>
+@endsection

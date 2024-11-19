@@ -15,6 +15,8 @@
     <script src="{{url('assets/js/theme-settings.js')}}"></script>
     <script src="{{url('assets/js/main.js')}}"></script>
 
+    @yield("extra-js")
+
 </body>
 
 </html>

@@ -112,7 +112,7 @@
                         </div>
                         <div class="body-text text-center">
                             You don't have an account yet?
-                            <a href="sign-up.php" class="body-text tf-color">Register Now</a>
+                            <a href="{{url('/admin/sign-up')}}" class="body-text tf-color">Register Now</a>
                         </div>
                     </div>
                 </div>

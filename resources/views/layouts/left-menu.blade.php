@@ -40,7 +40,7 @@
                                 </a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="product-detail.php" class="">
+                                <a href="{{url('/products/product-details')}}" class="">
                                     <div class="text">Product Detail</div>
                                 </a>
                             </li>
@@ -127,7 +127,7 @@
                                 </a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="sign-up.php" class="">
+                                <a href="{{url('/admin/sign-up')}}" class="">
                                     <div class="text">Sign up</div>
                                 </a>
                             </li>

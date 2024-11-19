@@ -17,11 +17,18 @@ class CategoryController extends Controller
         $file=$request->file("image");
         if(isset($file)){
             $file_name=$file->getClientOriginalName();
-            $file->move("assets/img/",$file_name);
+            $file->move("/assets/img/",$file_name);
+        }
+        $icon=$request->file('icon');
+        if(isset($icon)){
+            $icon_name=$icon->getClientOriginalName();
+            $icon->move("/assets/img/",$icon_name);
+
         }
         $category=new CategoryModel();
         $category->category_name=$category_name;
         $category->image=$file_name;
+        $category->icon=$icon_name;
         $category->save();
         return redirect(url('/category/list-category'));
 
@@ -61,10 +68,19 @@ class CategoryController extends Controller
             $file_name=$file->getClientOriginalName();
             $file->move("assets/img/",$file_name);
         }
+         $icon=$request->file('icon');
+        if(isset($icon)){
+            $icon_name=$icon->getClientOriginalName();
+            $icon->move("/assets/img/",$icon_name);
+
+        }
         $category=CategoryModel::find($id);
         $category->category_name=$category_name;
         if(isset($file_name)){
         $category->image=$file_name;
+        }
+        if(isset($icon_name)){
+            $category->icon=$icon_name;
         }
         $category->update();
         return redirect(url('/category/list-category'));

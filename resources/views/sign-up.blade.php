@@ -50,17 +50,34 @@
                             <h3>Create your account</h3>
                             <div class="body-text">Enter your personal details to create account</div>
                         </div>
-                        <form class="form-login flex flex-column gap24">
+                        <form class="form-login flex flex-column gap24" action="{{url('/admin/store-sign-up')}}" method="post">
+                            <p style="color:green">@if(Session('success_message'))</p>
+                            <p>{{Session('success_message')}}</p>
+                            @endif
+                            <p>@if(Session('error_message'))</p>
+                            <p>{{Session('error_message')}}</p>
+                            @endif
+                            @csrf
                             <fieldset class="name">
                                 <div class="body-title mb-10">Your username <span class="tf-color-1">*</span></div>
                                 <div class="flex gap10">
-                                    <input class="flex-grow" type="text" placeholder="First name" name="name" tabindex="0" value="" aria-required="true" required="">
-                                    <input class="flex-grow" type="text" placeholder="Last name" name="name" tabindex="0" value="" aria-required="true" required="">
+                                    <input class="flex-grow" type="text" placeholder="First name" name="firstname" tabindex="0" value="" aria-required="true" >
+                                  
+                                    <input class="flex-grow" type="text" placeholder="Last name" name="lastname" tabindex="0" value="" aria-required="true" required="">
                                 </div>
+                                @error('firstname')
+                                   <p style="color:red">{{$message}}</p> 
+                                    @enderror
+                                    @error('lastname')
+                                   <p style="color:red">{{$message}}</p> 
+                                    @enderror
                             </fieldset>
                             <fieldset class="email">
                                 <div class="body-title mb-10">Email address <span class="tf-color-1">*</span></div>
                                 <input class="flex-grow" type="email" placeholder="Enter your email address" name="email" tabindex="0" value="" aria-required="true" required="">
+                                @error('email')
+                                   <p style="color:red">{{$message}}</p> 
+                                    @enderror
                             </fieldset>
                             <fieldset class="password">
                                 <div class="body-title mb-10">Password <span class="tf-color-1">*</span></div>
@@ -69,14 +86,23 @@
                                     <i class="icon-eye view"></i>
                                     <i class="icon-eye-off hide"></i>
                                 </span>
+                                @error('password')
+                                   <p style="color:red">{{$message}}</p> 
+                                    @enderror
                             </fieldset>
-                            <fieldset class="password">
-                                <div class="body-title mb-10">Confirm password <span class="tf-color-1">*</span></div>
-                                <input class="password-input" type="password" placeholder="Enter your password" name="password" tabindex="0" value="" aria-required="true" required="">
-                                <span class="show-pass">
-                                    <i class="icon-eye view"></i>
-                                    <i class="icon-eye-off hide"></i>
-                                </span>
+                          
+                            <fieldset>
+                            <div class="body-title mb-10">Select role <span class="tf-color-1">*</span></div>
+                                <select name="role" id="">
+                                    <option value="">select role</option>
+                                    @foreach($roles as $role)
+                                    <option value="{{$role->role_id}}">{{$role->role_name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('role')
+                                   <p style="color:red">{{$message}}</p> 
+                                    @enderror
+                                
                             </fieldset>
                             <div class="flex justify-between items-center">
                                 <div class="flex gap10">
@@ -84,7 +110,8 @@
                                     <label class="body-text" for="signed">Agree with Privacy Policy</label>
                                 </div>
                             </div>
-                            <a href="login.php" class="tf-button w-full">Login</a>
+                            <button class="tf-button w-full" type="submit">Sign Up</button>
+                            
                         </form>
                         <div>
                             <div class="text-tiny mb-16 text-center">Or continue with social account</div>
@@ -125,7 +152,7 @@
                         </div>
                         <div class="body-text text-center">
                             You have an account?
-                            <a href="login.php" class="body-text tf-color">Login Now</a>
+                            <a href="{{url('/admin/login')}}" class="body-text tf-color">Login Now</a>
                         </div>
                     </div>
                 </div>
@@ -136,11 +163,11 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- Javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/main.js"></script>
+ <!-- Javascript -->
+ <script src="{{url('assets/js/jquery.min.js')}}"></script>
+    <script src="{{url('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{url('assets/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{url('assets/js/main.js')}}"></script>
 
 </body>
 

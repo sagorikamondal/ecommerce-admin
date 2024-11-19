@@ -58,6 +58,9 @@
                                                 <div class="body-title">Email</div>
                                             </li>
                                             <li>
+                                                <div class="body-title">Status</div>
+                                            </li>
+                                            <li>
                                                 <div class="body-title">Action</div>
                                             </li>
                                         </ul>
@@ -74,6 +77,7 @@
                                                     </div>
                                                     <div class="body-text">{{$user->role->role_name}}</div>
                                                     <div class="body-text">{{$user->email}}</div>
+                                                    <div class="body-text">{{$user->status}}</div>
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
                                                             <i class="icon-eye"></i>

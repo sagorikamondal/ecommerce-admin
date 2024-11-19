@@ -11,7 +11,7 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
-                                <div class="flex items-center flex-wrap justify-between gap20 mb-27">
+                                <div class="flex items-center flex-wrap justify-between mb-27">
                                     <h3>All category</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
@@ -33,7 +33,7 @@
                                 </div>
                                 <!-- all-category -->
                                 <div class="wg-box">
-                                    <div class="flex items-center justify-between gap10 flex-wrap">
+                                    <div class="flex items-center justify-between  flex-wrap">
                                         <div class="wg-filter flex-grow">
                                             <div class="show">
                                                 <div class="text-tiny">Showing</div>
@@ -55,15 +55,21 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <a class="tf-button style-1 w208" href="new-category.php"><i class="icon-plus"></i>Add new</a>
+                                        <a class="tf-button style-1 w208" href="{{url('/category/add-category')}}"><i class="icon-plus"></i>Add new</a>
                                     </div>
                                     <div class="wg-table table-all-category">
-                                        <ul class="table-title flex gap20 mb-14">
+                                        <ul class="table-title flex mb-14">
                                             <li>
                                                 <div class="body-title">Category</div>
                                             </li>    
                                             <li>
+                                                <div class="body-title">image</div>
+                                            </li>
+                                            <li>
                                                 <div class="body-title">Icon</div>
+                                            </li>
+                                            <li>
+                                                <div class="body-title">Date</div>
                                             </li>
                                            
                                             <li>
@@ -72,21 +78,24 @@
                                         </ul>
                                         <ul class="flex flex-column">
                                             @foreach($categories as $category)
-                                            <li class="product-item gap14">
+                                            <li class="product-item">
                                                 <div class="image no-bg">
                                                     <img src="images/products/51.png" alt="">
                                                 </div>
-                                                <div class="flex items-center justify-between gap20 flex-grow">
+                                                <div class="flex items-center justify-between  flex-grow">
                                                     <div class="name">
                                                         <a href="product-list.php" class="body-title-2">{{$category->category_name}}</a>
                                                     </div>
                                                     <div>
-                                                        <img src="{{url('assets/img')}}/{{$category->image}}" style="width: 100px;" alt="">
+                                                        <img src="{{url('assets/img')}}/{{$category->image}}" alt="" style="width: 100px;">
                                                         
                                                     </div>
-                                                    <!-- <div class="body-text">1,638</div>
-                                                    <div class="body-text">20</div>
-                                                    <div class="body-text">20 Nov 2023</div> -->
+                                                    <div>
+                                                        <img src="{{url('assets/img')}}/{{$category->icon}}" alt="" style="width: 100px;">
+                                                        
+                                                    </div>
+                                                   
+                                                    <div class="body-text">20 Nov 2023</div>
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
                                                             <a href="ek.php"><i class="icon-eye"></i></a>

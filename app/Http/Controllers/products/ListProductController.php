@@ -31,10 +31,16 @@ class ListProductController extends Controller
     public function edit_product(request $request){
         $id=$request->id;
         $products_edit=ProductModel::find($id);
+        $product_record=ProductModel::all();
         $category=CategoryModel::all();
         return view("product-edit")
         ->with(["list"=>$products_edit])
-        ->with(["categories"=>$category]);
+        ->with(["categories"=>$category])
+        ->with(['records'=>$product_record]);
 
+    }
+
+    public function product_details(){
+        return view("product-detail");
     }
 }
