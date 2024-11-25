@@ -93,11 +93,7 @@
                                     <div class="text">Order list</div>
                                 </a>
                             </li>
-                            <li class="sub-menu-item">
-                                <a href="{{url('/order/order-details')}}" class="">
-                                    <div class="text">Order detail</div>
-                                </a>
-                            </li>
+                           
                             <li class="sub-menu-item">
                                 <a href="{{url('/order/order-tracking')}}" class="">
                                     <div class="text">Order tracking</div>

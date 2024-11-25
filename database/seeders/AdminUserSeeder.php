@@ -17,7 +17,8 @@ class AdminUserSeeder extends Seeder
                 'role_id'=>1,
                 'name'=>'admin',
                 'email'=>'admin@gmail.com',
-                'password'=>bcrypt('1234')
+                'password'=>bcrypt('1234'),
+                'status'=>'active'
 
             ]);
         }

@@ -55,20 +55,22 @@
                                     <div class="wg-table table-all-category">
                                         <ul class="table-title flex gap20 mb-14">
                                             <li>
-                                                <div class="body-title">Product</div>
+                                                <div class="body-title">Order Id</div>
                                              
                                             </li>
                                             <li>
                                                 <div class="body-title">Billing Address</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Price</div>
+                                                <div class="body-title">Billing Name</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Quantity</div>
+                                                <div class="body-title">Total Price</div>
                                             </li>
+                                           
+                                          
                                             <li>
-                                                <div class="body-title">Total</div>
+                                                <div class="body-title">Payment</div>
                                             </li>
                                             <li>
                                                 <div class="body-title">Status</div>
@@ -90,12 +92,13 @@
                                                 </div>
                                                 <div class="flex items-center justify-between gap20 flex-grow">
                                                     <div class="name">
-                                                        <a href="product-list.php" class="body-title-2">{{$order->product->product_name}}</a>
+                                                        <a href="product-list.php" class="body-title-2">{{$order->order_id}}</a>
                                                     </div>
-                                                    <div class="body-text">{{$order->address->billing_name}}</div>
-                                                    <div class="body-text">₹{{$order->price}}</div>
-                                                    <div class="body-text">{{$order->quantity}}</div>
-                                                    <div class="body-text">{{$order->total}}</div>
+                                                    <div class="body-text">{{$order->billing_address}}</div>
+                                                    <div class="body-text">{{$order->billing_name}}</div>
+                                                    <div class="body-text">₹7887</div>
+                                                    <div class="body-text">{{$order->payment}}</div>
+                                                  
                                                     <div>
                                                         <div class="block-available">{{$order->status}}</div>
                                                     </div>
@@ -104,7 +107,7 @@
                                                     </div>
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
-                                                        <a href="{{url('/order/order-details')}}/{{$order->id}}"><i class="icon-eye"></i></a>
+                                                        <a href="{{url('/order/order-details')}}/{{$order->order_id}}"><i class="icon-eye"></i></a>
                                                         </div>
                                           @php
                                                  $order_permisson=ltrim(Auth::user()->role->order_permission,',');
@@ -114,14 +117,14 @@
                                           @foreach($permissions as $permission)
                                                 @if($permission=="edit")
                                                         <div class="item edit">
-                                                            <a href="{{url('orders/edit-order')}}/{{$order->id}}"><i class="icon-edit-3"></i></a>
+                                                            <a href="{{url('orders/edit-order')}}/{{$order->order_id}}"><i class="icon-edit-3"></i></a>
                                                         </div>
                                                            @endif
                                             @endforeach
                                             @foreach($permissions as $permission)
                                             @if($permission=="delete")
                                                         <div class="item trash">
-                                                        <a href="{{url('orders/delete-order')}}/{{$order->id}}"><i class="icon-trash-2"></i></a>
+                                                        <a href="{{url('orders/delete-order')}}/{{$order->order_id}}"><i class="icon-trash-2"></i></a>
                                                         </div>
                                                         @endif
                                                         @endforeach

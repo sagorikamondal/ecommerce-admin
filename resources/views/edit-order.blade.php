@@ -204,9 +204,22 @@
                                             <div class="body-text">Pay on Delivery (Cash/Card). Cash on delivery (COD) available. Card/Net banking acceptance subject to device availability.</div>
                                         </div>
                                         <div class="wg-box gap10">
-                                            <div class="body-title">Expected Date Of Delivery</div>
-                                            <div class="body-title-2 tf-color-2">20 Nov 2023</div>
-                                            <a class="tf-button style-1 w-full" href="oder-tracking.php"><i class="icon-truck"></i>Track order</a>
+                                            <form action="{{url('/update_order')}}" method="post">
+                                                @csrf
+                                                <p  >Order status</p>
+                                                <input type="hidden" name="id" value="{{$orders->order_id}}">
+                                                <p><select name="status" id="">
+                                                    <option value="pending">pending</option>
+                                                    <option value="ofd">Out for delivery</option>
+                                                    <option value="delivered">Delivered</option>
+                                                </select></p>
+                                                <p style="margin:top 10px;">
+                                                <button class="btn btn-success" type="submit" style="height: 34px;">Change Status</button>
+                                                </p>
+                                              
+                                               
+                                            </form>
+                                            
                                         </div>
                                     </div>
                                 </div>

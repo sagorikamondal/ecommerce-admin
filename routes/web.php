@@ -43,6 +43,10 @@ Route::post("/category/update",[CategoryController::class,"update_category"]);
 Route::get("/order/order-list",[OrderController::class,"order_list"]);
 Route::get("/order/order-details/{order_id}",[OrderController::class,"order_details"]);
 Route::get("/order/order-tracking",[OrderController::class,"order_tracking"]);
+Route::get("/orders/edit-order/{id}",[OrderController::class,"order_edit"]);
+Route::get("/orders/delete-order{id}",[OrderController::class,"order_delete"]);
+Route::post("/update_order",[OrderController::class,"update_order"]);
+
 
 
 //user roles
